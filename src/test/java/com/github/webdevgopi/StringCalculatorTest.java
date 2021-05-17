@@ -44,4 +44,15 @@ public class StringCalculatorTest {
     int result = myUnit.add("1\n2,3\n4,5\n55\n5\n6");
     assertEquals(81, result);
   }
+
+  @Test
+  @DisplayName("Test for string with variable delimiter")
+  public void testForStringWithVariableDelimiter() {
+    StringCalculator myUnit = new StringCalculator();
+
+    int result1 = myUnit.add("//:\n1:2:3\n4\n5:6\n7");
+    assertEquals(28, result1);
+    int result2 = myUnit.add("//~\n1~2\n3~4\n5~6\n7");
+    assertEquals(28, result2);
+  }
 }
