@@ -24,6 +24,9 @@ public class StringCalculator {
       if (temp < 0) {
         msg = msg + " " + temp;
       }
+      if (temp > 1000) {
+        temp = temp % 1000;
+      }
       sum = sum + temp;
     }
     if (!msg.isEmpty()) {

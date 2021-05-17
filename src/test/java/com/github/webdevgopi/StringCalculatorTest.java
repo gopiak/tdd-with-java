@@ -70,4 +70,15 @@ public class StringCalculatorTest {
         () -> myUnit.add("//:\n1:2:-1\n-4\n5:6\n-7"));
     assertEquals("negatives not allowed -> -1 -4 -7", ex2.getMessage());
   }
+
+  @Test
+  @DisplayName("Test for string with integers > 1000")
+  public void testForStringWithIntegerGT1000() {
+    StringCalculator myUnit = new StringCalculator();
+
+    int result1 = myUnit.add("//:\n1:2:3\n1004\n5:6\n7");
+    assertEquals(28, result1);
+    int result2 = myUnit.add("//~\n1~2\n3003~4\n5~6\n5007");
+    assertEquals(28, result2);
+  }
 }
