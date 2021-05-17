@@ -17,16 +17,25 @@ public class StringCalculator {
     }
     String[] nums = s.split(regex);
     int sum = 0;
+    String msg = "";
     for (String num : nums
     ) {
-      sum = sum + Integer.parseInt(num);
+      int temp = Integer.parseInt(num);
+      if (temp < 0) {
+        msg = msg + " " + temp;
+      }
+      sum = sum + temp;
     }
+    if (!msg.isEmpty()) {
+      throw new IllegalArgumentException("negatives not allowed ->" + msg);
+    }
+
     return sum;
   }
 
   public static void main(String[] args) {
     StringCalculator s = new StringCalculator();
-    String str = new String("//;\n1;2;3\n4\n5;6");
+    String str = new String("//;\n1;2;-3\n4\n-5;6");
     System.out.println(s.add(str));
   }
 }
