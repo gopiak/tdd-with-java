@@ -7,7 +7,7 @@ public class StringCalculator {
     if (s.isEmpty()) {
       return 0;
     }
-    String[] nums = s.split(",");
+    String[] nums = s.split("[\n,]");
     int sum = 0;
     for (String num : nums
     ) {
@@ -18,7 +18,7 @@ public class StringCalculator {
 
   public static void main(String[] args) {
     StringCalculator s = new StringCalculator();
-    String str = new String("1,2,3,4,5");
+    String str = new String("1\n2,3");
     System.out.println(s.add(str));
   }
 }

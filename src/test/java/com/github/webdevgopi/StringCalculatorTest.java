@@ -35,4 +35,13 @@ public class StringCalculatorTest {
     int result = myUnit.add("2,3");
     assertEquals(5, result);
   }
+
+  @Test
+  @DisplayName("Test for string with newlines instead of commas")
+  public void testForStringWithNewlines() {
+    StringCalculator myUnit = new StringCalculator();
+
+    int result = myUnit.add("1\n2,3\n4,5\n55\n5\n6");
+    assertEquals(81, result);
+  }
 }
